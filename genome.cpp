@@ -742,10 +742,10 @@ bool Genome::verify() {
 
 	//cout<<"Verifying Genome id: "<<this->genome_id<<endl;
 
-	if (this==0) {
+//	if (this==0) {
 		//cout<<"ERROR GENOME EMPTY"<<endl;
 		//cin>>pause;
-	}
+//	}
 
 	//Check each gene's nodes
 	for(curgene=genes.begin();curgene!=genes.end();++curgene) {

@@ -66,15 +66,15 @@ int main(int argc, char *argv[]) {
     NEAT::mutate_add_node_prob = 0;
     NEAT::mutate_add_link_prob = 0;
     NEAT::interspecies_mate_rate = 0; // Prob. of a mate being outside species
-    NEAT::mate_multipoint_prob = 0.5;
-    NEAT::mate_multipoint_avg_prob = 0.5;
-    NEAT::mate_singlepoint_prob = 0.5;
+    NEAT::mate_multipoint_prob = 1;
+    NEAT::mate_multipoint_avg_prob = 1;
+    NEAT::mate_singlepoint_prob = 1;
     NEAT::mate_only_prob = 0; // Prob. of mating without mutation
     NEAT::recur_only_prob = 0;  // Probability of forcing selection of ONLY links that are naturally recurrent
-    NEAT::pop_size = 10;  // Size of population
+    NEAT::pop_size = 50;  // Size of population
     NEAT::dropoff_age = 10;  // Age where Species starts to be penalized
     NEAT::newlink_tries = 0;  // Number of tries mutate_add_link will attempt to find an open link
-    NEAT::print_every = 10; // Tells to print population to file every n generations
+    NEAT::print_every = 1; // Tells to print population to file every n generations
     NEAT::babies_stolen = 0; // The number of babies to siphen off to the champions
     NEAT::num_runs = 10;
 
@@ -86,11 +86,11 @@ int main(int argc, char *argv[]) {
 
     pop = new Population(start_genome, NEAT::pop_size);
 
-    for (NEAT::Organism *o : pop->organisms) {
-
-        cout << "CHECK " << o->net->numlinks << endl;
-
-    }
+//    for (NEAT::Organism *o : pop->organisms) {
+//
+//        cout << "CHECK " << o->net->numlinks << endl;
+//
+//    }
 
 
 
@@ -338,11 +338,11 @@ bool spline_evaluate(Organism *org) {
         out[i] = net->outputs[i]->output;
 //        out[count]=(*(net->outputs.begin()))->activation;
     }
-    cout << "neural net output: " << endl;
-    for (int i = 0 ; i<20;i++){
-        cout  << out[i] << " , ";
-    }
-    cout << endl;
+//    cout << "neural net output: " << endl;
+//    for (int i = 0 ; i<20;i++){
+//        cout  << out[i] << " , ";
+//    }
+//    cout << endl;
 
 
     double sum;
@@ -351,7 +351,7 @@ bool spline_evaluate(Organism *org) {
 //        cout <<  g->innovation_num;
         cout << g->lnk->weight << " , ";
 
-        sum += g->lnk->weight;
+        sum +=  g->lnk->weight;
     }
     cout << endl;
 
